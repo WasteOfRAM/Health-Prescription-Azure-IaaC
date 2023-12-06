@@ -45,3 +45,21 @@ resource "azurerm_linux_web_app" "web_app" {
     }
   }
 }
+
+resource "azurerm_postgresql_flexible_server" "postgresql_server" {
+  name                   = var.db_server_name
+  resource_group_name    = azurerm_resource_group.HPA_RG.name
+  location               = azurerm_resource_group.HPA_RG.location
+  version                = "16"
+  administrator_login    = var.db_admin_login
+  administrator_password = var.db_admin_pass
+  storage_mb             = 32768
+  sku_name               = "Standard_B1ms"
+}
+
+resource "azurerm_postgresql_flexible_server_database" "example" {
+  name      = var.db_name
+  server_id = azurerm_postgresql_flexible_server.postgresql_server.id
+  collation = "en_US.utf8"
+  charset   = "utf8"
+}
