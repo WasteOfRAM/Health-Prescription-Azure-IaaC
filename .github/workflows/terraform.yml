@@ -37,3 +37,5 @@ jobs:
       
     - name: Terraform Plan
       run: terraform plan -input=false
+      env:
+        TF_VAR_resource_group_name: ${{env.RESOURCE_GROUP_NAME}}
