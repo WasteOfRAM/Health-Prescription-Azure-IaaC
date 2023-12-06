@@ -21,16 +21,16 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-        - name: Terraform Init
-        env:
-          ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
-        run: |
-          terraform init \
-            -backend-config="storage_account_name='terraformfilesstorage'" \
-            -backend-config="container_name='statefiles'" \
-            -backend-config="key='terraform.tfstate'" \
-            -backend-config="access_key=$ACCESS_KEY" \
-            -reconfigure
+    - name: Terraform Init
+      env:
+        ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
+      run: |
+        terraform init \
+          -backend-config="storage_account_name='terraformfilesstorage'" \
+          -backend-config="container_name='statefiles'" \
+          -backend-config="key='terraform.tfstate'" \
+          -backend-config="access_key=$ACCESS_KEY" \
+          -reconfigure
       
     - name: Terraform Plan
       run: terraform plan -input=false
