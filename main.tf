@@ -11,10 +11,6 @@ terraform {
     storage_account_name = "terraformfilesstorage"
     container_name       = "statefiles"
     key                  = "terraform.tfstate"
-    client_id            = "${AZURE_CLIENT_ID}"
-    client_secret        = "${AZURE_CLIENT_SECRET}"
-    subscription_id      = "${AZURE_CLIENT_SUBSCRIPTION_ID}"
-    tenant_id            = "${AZURE_TENANT_ID}"
   }
 }
 
