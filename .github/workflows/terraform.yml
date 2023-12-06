@@ -37,7 +37,7 @@ jobs:
         TF_VAR_resource_group_name: ${{ vars.RESOURCE_GROUP_NAME }}
         TF_VAR_free_web_app_plan: ${{ vars.SERVICE_PLAN_NAME }}
         TF_VAR_web_app_name: ${{ vars.WEB_APP_NAME }}
-      run: terraform plan -input=false
+      run: terraform plan -input=false -out=tfplan.out
 
     - name: Terraform Apply
-      run: terraform apply -auto-approve -input=false
+      run: terraform apply tfplan.out -auto-approve
