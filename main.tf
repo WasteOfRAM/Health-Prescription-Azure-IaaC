@@ -5,13 +5,6 @@ terraform {
       version = "3.83.0"
     }
   }
-
-  backend "azurerm" {
-    resource_group_name  = "TerraformState"
-    storage_account_name = "terraformfilesstorage"
-    container_name       = "statefiles"
-    key                  = "terraform.tfstate"
-  }
 }
 
 provider "azurerm" {
