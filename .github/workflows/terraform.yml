@@ -4,6 +4,9 @@ on:
   push:
     branches: [ "main" ]
 
+env:
+  ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
+
 jobs:
   terraform:
     name: 'Terraform'
@@ -22,17 +25,14 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Terraform Init
-      run: |
-        terraform init \
-          -backend-config="storage_account_name=terraformfilesstorage" \
-          -backend-config="container_name=statefiles" \
-          -backend-config="key=terraform.tfstate" \
-          -backend-config="access_key=${{ secrets.ACCESS_KEY }}" \
-          -reconfigure
-      
-
-    - name: Terraform Format
-      run: terraform fmt -check
+      run: terraform init
+      # run: |
+      #   terraform init \
+      #     -backend-config="storage_account_name=terraformfilesstorage" \
+      #     -backend-config="container_name=statefiles" \
+      #     -backend-config="key=terraform.tfstate" \
+      #     -backend-config="access_key=${{ secrets.ACCESS_KEY }}" \
+      #     -reconfigure
 
     - name: Terraform Plan
       run: terraform plan -input=false
