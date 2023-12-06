@@ -40,4 +40,4 @@ jobs:
       run: terraform plan -out=tfplan.out -input=false -lock-timeout=60s
 
     - name: Terraform Apply
-      run: terraform apply tfplan.out -auto-approve
+      run: terraform apply -auto-approve tfplan.out
