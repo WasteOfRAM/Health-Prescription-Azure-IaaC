@@ -21,14 +21,14 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-        - name: Terraform Init
-        run: |
-          terraform init \
-            -backend-config="storage_account_name=terraformfilesstorage" \
-            -backend-config="container_name=statefiles" \
-            -backend-config="key=terraform.tfstate" \
-            -backend-config="access_key=${{ secrets.ACCESS_KEY }}" \
-            -reconfigure
+    - name: Terraform Init
+      run: |
+        terraform init \
+          -backend-config="storage_account_name=terraformfilesstorage" \
+          -backend-config="container_name=statefiles" \
+          -backend-config="key=terraform.tfstate" \
+          -backend-config="access_key=${{ secrets.ACCESS_KEY }}" \
+          -reconfigure
       
 
     - name: Terraform Format
