@@ -4,9 +4,6 @@ on:
   push:
     branches: [ "main" ]
 
-env:
-  RESOURCE_GROUP_NAME: ${{ env.RESOURCE_GROUP_NAME }}
-
 jobs:
   terraform:
     name: 'Terraform'
