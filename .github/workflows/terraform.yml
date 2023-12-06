@@ -35,4 +35,4 @@ jobs:
     - name: Terraform Plan
       run: terraform plan
       env:
-        TF_VAR_resource_group_name: $RESOURCE_GROUP_NAME
+        TF_VAR_resource_group_name: ${{RESOURCE_GROUP_NAME}}
