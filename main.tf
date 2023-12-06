@@ -49,7 +49,7 @@ resource "azurerm_linux_web_app" "web_app" {
 resource "azurerm_postgresql_flexible_server" "postgresql_server" {
   name                   = var.db_server_name
   resource_group_name    = azurerm_resource_group.HPA_RG.name
-  location               = azurerm_resource_group.HPA_RG.location
+  location               = "North Europe"
   version                = "16"
   administrator_login    = var.db_admin_login
   administrator_password = var.db_admin_pass
