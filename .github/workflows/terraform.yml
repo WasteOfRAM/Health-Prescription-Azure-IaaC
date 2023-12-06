@@ -33,6 +33,6 @@ jobs:
           -reconfigure
       
     - name: Terraform Plan
-      run: terraform plan -input=false
+      run: terraform plan
       env:
-        TF_VAR_resource_group_name: ${{env.RESOURCE_GROUP_NAME}}
+        TF_VAR_resource_group_name: ${{ env.RESOURCE_GROUP_NAME }}
