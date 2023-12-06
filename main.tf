@@ -18,6 +18,6 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "HPA_RG" {
-  name     = "${env.RESOURCE_GROUP_NAME}"
+  name     = "${RESOURCE_GROUP_NAME}"
   location = "West Europe"
 }
