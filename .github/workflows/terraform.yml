@@ -46,8 +46,8 @@ jobs:
         TF_VAR_db_admin_login: ${{ secrets.DB_ADMIN_LOGIN }}
         TF_VAR_db_admin_pass: ${{ secrets.DB_ADMIN_PASS }}
         TF_VAR_jwt_key: ${{ secrets.JWT_KEY }}
-        TF_VAR_jwt_key: ${{ secrets.JWT_ISSUER }}
-        TF_VAR_jwt_key: ${{ secrets.JWT_AUDIENCE }}
+        TF_VAR_jwt_issuer: ${{ secrets.JWT_ISSUER }}
+        TF_VAR_jwt_audience: ${{ secrets.JWT_AUDIENCE }}
       run: terraform plan -out=tfplan.out -input=false
 
     - name: Terraform Apply
