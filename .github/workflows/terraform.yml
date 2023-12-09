@@ -6,8 +6,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  terraform-plan:
-    name: 'Terraform Plan'
+  terraform:
+    name: 'Terraform'
     runs-on: ubuntu-latest
 
     steps:
